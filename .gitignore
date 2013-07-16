@@ -1,0 +1,9 @@
+.*
+!/.gitignore
+*.pyc
+
+webpy-service/bin
+webpy-service/build
+webpy-service/include
+webpy-service/local
+webpy-service/lib

@@ -1,0 +1,16 @@
+
+## As the postgres user itself, after install postgis-1.5 using the apt-get command.
+
+createdb gis_template
+createlang plpgsql gis_template
+
+psql -d gis_template -f ls /usr/share/postgresql/9.1/contrib/postgis-1.5/postgis.sql 
+psql -d gis_template -f /usr/share/postgresql/9.1/contrib/postgis-1.5/postgis.sql 
+psql -d gis_template -f /usr/share/postgresql/9.1/contrib/postgis_comments.sql 
+psql -d gis_template -f /usr/share/postgresql/9.1/contrib/postgis-1.5/spatial_ref_sys.sql 
+
+## Converting the .shp files to .sql
+## (You need to have unpacked the noaa.tar.gz tarball first)
+
+for file in *.shp; do filename=$( echo ${file} | awk -F. '{print $1}') ; shp2pgsql -W LATIN1 
+    ${file} ${filename} > ${filename}.sql ;  done

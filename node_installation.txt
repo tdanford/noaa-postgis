@@ -1,0 +1,10 @@
+curl -o node-source.tar.gz http://nodejs.org/dist/v0.8.24/node-v0.8.24.tar.gz
+gunzip node-source.tar.gz 
+tar xvf node-source.tar
+rm node-source.tar 
+cd node-v0.8.24/
+./configure
+make
+sudo make install
+
+npm install -g topojson

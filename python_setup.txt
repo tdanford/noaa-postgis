@@ -1,0 +1,7 @@
+
+## Once you've installed virtualenv, turn the webpy-service directory into
+## a virtualenv environment
+
+virtualenv webpy-service
+cd webpy-service
+source bin/activate
